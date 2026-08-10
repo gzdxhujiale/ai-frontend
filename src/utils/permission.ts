@@ -15,16 +15,13 @@ export function canAccessRoute(route: { meta: unknown }, userStore: UserStore, t
   return true
 }
 
-export function buildMenuGroups(routes: RouteRecordNormalized[], userStore: UserStore, tenantStore: TenantStore) {
-  const groups = new Map<string, { key: string; label: string; icon: string; children: { key: string; label: string }[] }>()
-  routes
+export function buildMenuItems(routes: RouteRecordNormalized[], userStore: UserStore, tenantStore: TenantStore) {
+  return routes
     .filter((route) => (route.meta as unknown as AppRouteMeta).menu && canAccessRoute(route, userStore, tenantStore))
     .sort((a, b) => Number((a.meta as unknown as AppRouteMeta).order ?? 0) - Number((b.meta as unknown as AppRouteMeta).order ?? 0))
-    .forEach((route) => {
+    .flatMap((route) => {
       const meta = route.meta as unknown as AppRouteMeta
-      if (!meta.group || !route.name) return
-      if (!groups.has(meta.group)) groups.set(meta.group, { key: meta.group, label: meta.groupTitle ?? meta.group, icon: meta.groupIcon ?? 'apps', children: [] })
-      groups.get(meta.group)?.children.push({ key: String(route.name), label: meta.title })
+      if (!route.name) return []
+      return [{ key: String(route.name), label: meta.title, icon: meta.groupIcon ?? 'apps' }]
     })
-  return [...groups.values()]
 }

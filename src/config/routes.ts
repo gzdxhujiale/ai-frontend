@@ -19,19 +19,13 @@ export interface AppRouteMeta {
 
 export const routeRecords: RouteRecordRaw[] = [
   { path: '/', redirect: '/workspace' },
-  { path: '/workspace', name: 'workbench', component: () => import('../views/WorkspaceView.vue'), meta: { title: '工作台', menu: true, group: 'dashboard', groupTitle: '仪表盘', groupIcon: 'dashboard', order: 1, permissions: ['dashboard:view'] } satisfies AppRouteMeta },
-  { path: '/monitor', name: 'monitor', component: () => import('../views/PlaceholderView.vue'), meta: { title: '实时监控', menu: true, group: 'dashboard', groupTitle: '仪表盘', groupIcon: 'dashboard', order: 2, permissions: ['monitor:view'] } satisfies AppRouteMeta },
-  { path: '/search-table', name: 'search-table', component: () => import('../views/PlaceholderView.vue'), meta: { title: '查询表格', menu: true, group: 'list', groupTitle: '列表页', groupIcon: 'list', order: 1, permissions: ['projects:view'] } satisfies AppRouteMeta },
-  { path: '/card-list', name: 'card-list', component: () => import('../views/PlaceholderView.vue'), meta: { title: '卡片列表', menu: true, group: 'list', groupTitle: '列表页', groupIcon: 'list', order: 2, permissions: ['projects:view'] } satisfies AppRouteMeta },
-  { path: '/step-form', name: 'step-form', component: () => import('../views/PlaceholderView.vue'), meta: { title: '分步表单', menu: true, group: 'forms', groupTitle: '表单页', groupIcon: 'settings', order: 1, permissions: ['forms:edit'] } satisfies AppRouteMeta },
-  { path: '/group-form', name: 'group-form', component: () => import('../views/PlaceholderView.vue'), meta: { title: '分组表单', menu: true, group: 'forms', groupTitle: '表单页', groupIcon: 'settings', order: 2, permissions: ['forms:edit'] } satisfies AppRouteMeta },
-  { path: '/basic-detail', name: 'basic-detail', component: () => import('../views/PlaceholderView.vue'), meta: { title: '基础详情页', menu: true, group: 'detail', groupTitle: '详情页', groupIcon: 'file', order: 1, permissions: ['documents:view'] } satisfies AppRouteMeta },
-  { path: '/analysis', name: 'analysis', component: () => import('../views/PlaceholderView.vue'), meta: { title: '分析页', menu: true, group: 'visualization', groupTitle: '数据可视化', groupIcon: 'apps', order: 1, permissions: ['analytics:view'] } satisfies AppRouteMeta },
-  { path: '/multi-analysis', name: 'multi-analysis', component: () => import('../views/PlaceholderView.vue'), meta: { title: '多维数据分析', menu: true, group: 'visualization', groupTitle: '数据可视化', groupIcon: 'apps', order: 2, permissions: ['analytics:advanced'], roles: ['super_admin', 'tenant_admin'] } satisfies AppRouteMeta },
-  { path: '/success', name: 'success', component: () => import('../views/PlaceholderView.vue'), meta: { title: '成功页', menu: true, group: 'result', groupTitle: '结果页', groupIcon: 'result', order: 1, permissions: ['dashboard:view'] } satisfies AppRouteMeta },
-  { path: '/failure', name: 'failure', component: () => import('../views/PlaceholderView.vue'), meta: { title: '失败页', menu: true, group: 'result', groupTitle: '结果页', groupIcon: 'result', order: 2, permissions: ['dashboard:view'] } satisfies AppRouteMeta },
-  { path: '/settings', name: 'settings', component: () => import('../views/PlaceholderView.vue'), meta: { title: '系统设置', menu: true, group: 'system', groupTitle: '系统管理', groupIcon: 'settings', order: 1, roles: ['super_admin', 'tenant_admin'], permissions: ['settings:view'], tenantScoped: true } satisfies AppRouteMeta },
-  { path: '/tenant-settings', name: 'tenant-settings', component: () => import('../views/PlaceholderView.vue'), meta: { title: '租户管理', menu: true, group: 'system', groupTitle: '系统管理', groupIcon: 'settings', order: 2, roles: ['super_admin'], permissions: ['tenants:manage'] } satisfies AppRouteMeta },
+  { path: '/workspace', name: 'workbench', component: () => import('../views/WorkspaceView.vue'), meta: { title: '我的工作台', menu: true, groupIcon: 'dashboard', order: 1 } satisfies AppRouteMeta },
+  { path: '/tasks', name: 'tasks', component: () => import('../views/PlaceholderView.vue'), meta: { title: '任务中心', menu: true, groupIcon: 'list', order: 2 } satisfies AppRouteMeta },
+  { path: '/apps', name: 'apps', component: () => import('../views/PlaceholderView.vue'), meta: { title: '应用中心', menu: true, groupIcon: 'apps', order: 3 } satisfies AppRouteMeta },
+  { path: '/business-map', name: 'business-map', component: () => import('../views/PlaceholderView.vue'), meta: { title: '经营地图', menu: true, groupIcon: 'file', order: 4 } satisfies AppRouteMeta },
+  { path: '/business-insights', name: 'business-insights', component: () => import('../views/PlaceholderView.vue'), meta: { title: '经营洞察', menu: true, groupIcon: 'result', order: 5 } satisfies AppRouteMeta },
+  { path: '/ai-upgrade', name: 'ai-upgrade', component: () => import('../views/PlaceholderView.vue'), meta: { title: 'AI升级', menu: true, groupIcon: 'apps', order: 6 } satisfies AppRouteMeta },
+  { path: '/enterprise-settings', name: 'enterprise-settings', component: () => import('../views/PlaceholderView.vue'), meta: { title: '企业设置', menu: true, groupIcon: 'settings', order: 7 } satisfies AppRouteMeta },
   { path: '/forbidden', name: 'forbidden', component: () => import('../views/ForbiddenView.vue'), meta: { title: '无权访问' } satisfies AppRouteMeta },
 ]
 
