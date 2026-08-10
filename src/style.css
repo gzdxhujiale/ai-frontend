@@ -1,3 +1,7 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css";
+
 :root {
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   color: #1d2129;
@@ -8,68 +12,11 @@
 }
 
 * { box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
 body { margin: 0; min-width: 320px; }
 button, input { font: inherit; }
-#app { min-height: 100vh; }
+#app { height: 100%; }
 
-.pro-app { min-height: 100vh; background: #f2f3f5; }
-.pro-header { height: 56px; padding: 0 28px 0 44px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #e5e6eb; }
-.pro-brand { display: flex; align-items: center; gap: 10px; color: #1d2129; font-size: 16px; font-weight: 600; letter-spacing: -.2px; }
-.pro-logo { position: relative; width: 22px; height: 22px; display: inline-block; }
-.pro-logo i { position: absolute; width: 11px; height: 11px; border-radius: 4px; transform: rotate(45deg); }
-.pro-logo i:nth-child(1) { top: 5px; left: 0; background: #00c1a2; }
-.pro-logo i:nth-child(2) { top: 0; left: 6px; background: #1664ff; }
-.pro-logo i:nth-child(3) { top: 5px; right: 0; background: #24a8ff; }
-.pro-logo i:nth-child(4) { bottom: 0; left: 6px; background: #6158e8; }
-.pro-header-tools { display: flex; align-items: center; gap: 16px; color: #4e5969; font-size: 12px; }
-.tool-button { min-width: 28px; color: #4e5969; }
-.header-link { padding: 4px 0; color: #4e5969; font-size: 12px; }
-.header-link:hover, .tool-button:hover { color: #165dff; }
-.caret { margin-left: 5px; font-size: 13px; }
-.user-trigger { cursor: pointer; }
-.user-avatar { color: #fff; background: #4b6cb7; }
-.tenant-trigger { cursor: pointer; }
-.tenant-dot { width: 8px; height: 8px; display: inline-block; border-radius: 50%; box-shadow: 0 0 0 3px #f2f3f5; }
-.tenant-name { max-width: 120px; overflow: hidden; color: #1d2129; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
-.tenant-plan { padding: 2px 5px; color: #86909c; border: 1px solid #e5e6eb; border-radius: 3px; font-size: 10px; }
-.tenant-option { display: flex; align-items: center; gap: 8px; min-width: 180px; }
-.tenant-option i { width: 8px; height: 8px; display: inline-block; border-radius: 50%; }
-.tenant-option small { margin-left: auto; color: #86909c; font-size: 10px; }
-.pro-body { min-height: calc(100vh - 56px); }
-.pro-sider { position: relative; background: #fff; border-right: 1px solid #e5e6eb; }
-.pro-menu { padding: 8px 10px; background: #fff; }
-.pro-menu .arco-menu-item, .pro-menu .arco-menu-inline-header { height: 40px; margin: 1px 0; border-radius: 2px; color: #4e5969; font-size: 13px; }
-.pro-menu .arco-menu-item,
-.pro-menu .arco-menu-item:hover,
-.pro-menu .arco-menu-item:active,
-.pro-menu .arco-menu-item.arco-menu-selected,
-.pro-menu .arco-menu-item.arco-menu-selected:hover {
-  background-color: transparent !important;
-}
-.pro-menu .arco-menu-item::before,
-.pro-menu .arco-menu-item:hover::before,
-.pro-menu .arco-menu-item:active::before,
-.pro-menu .arco-menu-item.arco-menu-selected::before {
-  background-color: transparent !important;
-  opacity: 0 !important;
-}
-.pro-menu .arco-menu-item:hover { color: #165dff; }
-.pro-menu .arco-menu-selected { color: #165dff; font-weight: 600; }
-.pro-menu .arco-menu-inline-header { padding-left: 12px; }
-.pro-menu .arco-menu-item { padding-left: 12px; }
-.sider-collapse { position: absolute; right: 12px; bottom: 12px; left: 12px; }
-.sider-collapse .arco-btn { width: 100%; justify-content: flex-start; color: #86909c; }
-.sider-collapse .arco-btn:hover { color: #165dff; background: #f2f3f5; }
-.pro-main { min-width: 0; }
-.welcome-header { height: 92px; padding: 0 26px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #f2f3f5; }
-.welcome-header h1 { margin: 0 0 7px; color: #1d2129; font-size: 18px; font-weight: 600; }
-.welcome-header p { margin: 0; color: #86909c; font-size: 12px; }
-.account-metrics { display: flex; align-items: center; gap: 54px; }
-.account-metrics div { min-width: 90px; }
-.account-metrics span { display: block; color: #86909c; font-size: 12px; }
-.account-metrics strong { display: flex; align-items: center; gap: 5px; margin-top: 8px; color: #1d2129; font-size: 20px; font-weight: 500; }
-.account-metrics strong svg { color: #4e5969; font-size: 12px; }
-.pro-content { overflow: auto; background: #f2f3f5; }
 .dashboard-layout { display: grid; grid-template-columns: minmax(0, 1fr) 236px; gap: 10px; padding: 16px; }
 .dashboard-main, .dashboard-rail { min-width: 0; }
 .overview-card, .dashboard-card { border: 0; border-radius: 0; background: #fff; }
@@ -126,31 +73,16 @@ button, input { font: inherit; }
 .docs-list { display: flex; flex-direction: column; gap: 7px; }
 .docs-list .arco-link { color: #165dff; font-size: 12px; }
 .floating-settings { position: fixed; z-index: 10; right: 0; top: 50%; width: 30px; height: 36px; border-radius: 5px 0 0 5px; transform: translateY(-50%); }
-.placeholder-view { min-height: 100%; padding: 16px; background: #f2f3f5; }
+.placeholder-view { min-height: 100%; padding: 8px; background: #f2f3f5; }
 .placeholder-view .arco-card { min-height: 360px; display: grid; place-items: center; }
 .is-dark { filter: invert(.88) hue-rotate(180deg); }
 .is-dark .pro-logo, .is-dark .feature-visual { filter: invert(1) hue-rotate(180deg); }
 
 @media (max-width: 1050px) {
-  .account-metrics { gap: 18px; }
   .dashboard-layout { grid-template-columns: minmax(0, 1fr) 210px; }
   .primary-grid, .secondary-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
-  .pro-header { padding: 0 16px; }
-  .pro-header-tools { gap: 9px; }
-  .header-link, .user-trigger span { display: none; }
-  .tenant-plan { display: none; }
-  .pro-sider { width: 64px !important; flex: 0 0 64px !important; }
-  .pro-menu .arco-menu-inline-header { justify-content: center; padding: 0; }
-  .pro-menu .arco-menu-inline-header .arco-menu-icon { margin-right: 0; }
-  .pro-menu .arco-menu-inline-header .arco-menu-icon + span, .pro-menu .arco-menu-inline-header .arco-menu-icon + span + span { display: none; }
-  .pro-menu .arco-menu-item { justify-content: center; padding: 0; font-size: 0; }
-  .pro-menu .arco-menu-item .arco-menu-icon { margin-right: 0; }
-  .sider-collapse { display: none; }
-  .welcome-header { height: auto; min-height: 82px; align-items: flex-start; flex-direction: column; gap: 12px; padding: 17px 16px; }
-  .account-metrics { width: 100%; justify-content: space-between; gap: 8px; }
-  .account-metrics strong { font-size: 16px; }
   .dashboard-layout { grid-template-columns: 1fr; padding: 10px; }
   .dashboard-rail { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .quick-card, .feature-visual, .docs-card { margin: 0; }
