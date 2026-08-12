@@ -95,3 +95,32 @@ button, input { font: inherit; }
   .dashboard-rail { grid-template-columns: 1fr; }
   .docs-card { grid-column: auto; }
 }
+
+/* Fix Arco Design DatePicker & TimePicker time columns height and list rendering */
+.arco-panel-time,
+.arco-picker-time-panel {
+  min-height: 240px !important;
+}
+
+.arco-timepicker-list {
+  height: 200px !important;
+  min-height: 200px !important;
+}
+
+.arco-timepicker-list-col {
+  height: 190px !important;
+  min-height: 190px !important;
+  max-height: 190px !important;
+  overflow-y: auto !important;
+}
+
+.arco-timepicker-list-col ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.arco-timepicker-list-item {
+  height: 30px !important;
+  line-height: 30px !important;
+}

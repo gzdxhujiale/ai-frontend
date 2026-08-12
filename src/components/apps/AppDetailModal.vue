@@ -161,7 +161,7 @@ const handleAddTrigger = () => {
               @click="handleRunClick"
             >
               <template #icon><IconPlayArrow /></template>
-              测试影刀对话框 (运行)
+              运行交互对话框 (测试)
             </a-button>
 
             <a-button
@@ -280,15 +280,15 @@ const handleAddTrigger = () => {
         <div class="flex items-center justify-between bg-blue-50/70 border border-blue-100 rounded-xl p-4">
           <div>
             <h3 class="text-sm font-semibold text-blue-900 flex items-center gap-2">
-              <IconCode /> 输入输出参数配置 & 影刀对话框预览
+              <IconCode /> 输入输出参数配置 & 运行对话框预览
             </h3>
             <p class="text-xs text-blue-700/80 mt-1">
-              配置应用在运行时所需的交互参数字段。点击右侧按钮可直接呼出影刀风格的运行输入框。
+              配置应用在运行时所需的交互参数字段。点击右侧按钮可直接呼出运行输入框。
             </p>
           </div>
           <a-button type="primary" class="!rounded-lg !bg-rose-500 hover:!bg-rose-600" @click="handleRunClick">
             <template #icon><IconPlayArrow /></template>
-            测试影刀交互框预览
+            测试运行对话框预览
           </a-button>
         </div>
 
@@ -456,7 +456,7 @@ const handleAddTrigger = () => {
 
       <!-- Tab 5: Version History (Timeline Style) -->
       <div v-else-if="activeTab === 'versions'" class="space-y-4 max-h-[540px] overflow-y-auto pr-2 py-2">
-        <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">版本演进与 Changelog (影刀样式)</h3>
+        <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">版本演进与 Changelog</h3>
         <a-timeline mode="left">
           <a-timeline-item
             v-for="ver in app.versions"

@@ -86,7 +86,7 @@ const mockApps: AppItem[] = [
     name: '天猫商家被投诉数据获取',
     space: 'public',
     category: '淘宝',
-    tags: ['Agent', '影刀RPA', '官方推荐'],
+    tags: ['Agent', 'RPA自动化', '官方推荐'],
     level: 'L2 场景应用',
     icon: 'shopping',
     accent: 'from-rose-500 to-red-600',
@@ -102,7 +102,7 @@ const mockApps: AppItem[] = [
     usageDoc: `### 使用说明
 > **注意**：官方应用暂不支持二开服务，需要修改内容，请自行查看源码后修改。
 
-1. 点击“运行应用”，弹出**影刀对话框**填写查询开始/结束时间、投诉原因。
+1. 点击“运行应用”，弹出**运行对话框**填写查询开始/结束时间、投诉原因。
 2. 确认存储 Excel 路径无误后点击确定。
 3. 系统将自动唤起浏览器并执行抓取任务。`,
     developer: '天猫数据组 (admin@bigdata)',
@@ -165,14 +165,14 @@ const mockApps: AppItem[] = [
     level: 'L2 场景应用',
     icon: 'global',
     accent: 'from-amber-500 to-orange-600',
-    description: '采集亚马逊店铺关键指标数据汇总 Excel，分区推送异常信息至飞书/钉钉，助商家及时避险。',
+    description: '采集亚马逊店铺关键指标数据汇总 Excel，分区推送异常信息至钉钉/企微，助商家及时避险。',
     backgroundDoc: `### 背景介绍
 亚马逊 Seller Central 卖家中心界面分散，包含账户状况、ODR 订单缺陷率、迟发率、政策合规等多个独立模块。跨站点巡检耗费大量精力。`,
     requirementsDoc: `### 需求分析
 1. 自动轮询多站点账户健康指标。
-2. 超出阈值立刻通过飞书群机器人告警。`,
+2. 超出阈值立刻通过 IM 机器人告警。`,
     featureDoc: `### 功能描述
-多账号登录 -> 抓取 Account Health 概览 -> 判断 ODR/LDR 是否触发预警 -> 导出巡检日报 -> 飞书机器人推送。`,
+多账号登录 -> 抓取 Account Health 概览 -> 判断 ODR/LDR 是否触发预警 -> 导出巡检日报 -> IM 机器人推送。`,
     usageDoc: `### 使用说明
 配置店铺 API Token 或 RPA 登录凭据后，即可按设定时间定时巡检。`,
     developer: '跨境自动化团队',
@@ -444,7 +444,7 @@ export const useAppCenterStore = defineStore('appCenter', {
         startTime: nowStr,
         duration: '正在计算...',
         status: 'running',
-        triggerSource: '手动影刀对话框',
+        triggerSource: '手动运行对话框',
         logText: `[${nowStr}] 交互框传参: ${JSON.stringify(inputValues)}\n[${nowStr}] 唤起自动化执行引擎...\n[${nowStr}] 正在处理应用逻辑中...`,
         outputSummary: '运行中',
       }

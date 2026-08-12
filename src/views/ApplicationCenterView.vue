@@ -124,7 +124,7 @@ const handleRefresh = () => {
             <div class="mb-1 flex items-center gap-2.5">
               <h1 class="text-xl font-bold tracking-tight text-slate-900">企业应用中心</h1>
               <a-tag color="blue" size="small">{{ tenantStore.currentTenant.name }}</a-tag>
-              <a-tag color="green" size="small">影刀 & 飞书竞品体验版</a-tag>
+              <a-tag color="green" size="small">企业标准版</a-tag>
             </div>
             <p class="text-xs text-slate-500">
               整合 RPA 自动化流程、AI Agent、场景工具与空间权限映射，驱动企业高效经营
@@ -217,7 +217,7 @@ const handleRefresh = () => {
           <a-input
             v-model="searchText"
             allow-clear
-            placeholder="搜索影刀 RPA、Agent 或应用名称..."
+            placeholder="搜索 RPA、Agent 或应用名称..."
             class="w-full lg:max-w-[320px] !rounded-lg"
           >
             <template #prefix><IconSearch /></template>
@@ -330,7 +330,7 @@ const handleRefresh = () => {
                 class="!rounded-lg !bg-emerald-600 hover:!bg-emerald-700 !px-3"
                 @click="handleOpenInteractive(app)"
               >
-                交互框 (运行)
+                运行
               </a-button>
 
               <span class="text-[11px] text-slate-400">

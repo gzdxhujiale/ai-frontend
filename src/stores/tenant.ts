@@ -11,7 +11,7 @@ export const useTenantStore = defineStore('tenant', {
   state: () => ({
     currentTenantId: 'bytedance',
     tenants: [
-      { id: 'bytedance', name: '北京字节跳动', plan: '企业版', color: '#165dff' },
+      { id: 'bytedance', name: '临川科技', plan: '企业版', color: '#165dff' },
       { id: 'arco', name: 'Arco Design Team', plan: '专业版', color: '#14c9c9' },
       { id: 'demo', name: '体验租户', plan: '试用版', color: '#ff7d00' },
     ] as Tenant[],

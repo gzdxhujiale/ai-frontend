@@ -52,7 +52,7 @@ const handleSubmit = () => {
     }
   }
 
-  Message.success({ content: `[${props.app.name}] 影刀对话框确认，已投递运行流程！` })
+  Message.success({ content: `[${props.app.name}] 运行对话框确认，已投递运行流程！` })
   appStore.runAppNow(props.app.id, { ...formValues })
   emit('run', { ...formValues })
   handleClose()
@@ -75,8 +75,7 @@ const handleSubmit = () => {
           <IconPlayArrow />
         </span>
         <div class="flex items-center gap-2">
-          <span class="font-bold text-slate-800 text-base">影刀对话框</span>
-          <span class="text-xs text-slate-400 font-normal">({{ app?.name }})</span>
+          <span class="text-xs text-slate-400 font-normal">{{ app?.name }}</span>
         </div>
       </div>
     </template>
@@ -85,7 +84,7 @@ const handleSubmit = () => {
       <div class="rounded-xl border border-amber-100 bg-amber-50/60 p-3 text-xs text-amber-800 flex items-start gap-2">
         <IconInfoCircle class="mt-0.5 shrink-0 text-amber-600 text-sm" />
         <div>
-          <span>提示：这是影刀 RPA / Agent 运行前弹出的标准交互对话框。确认参数后将唤起引擎执行流程。</span>
+          <span>提示：确认参数后点击运行将唤起引擎执行流程。</span>
         </div>
       </div>
 
@@ -103,6 +102,8 @@ const handleSubmit = () => {
               v-model="formValues[field.key]"
               show-time
               format="YYYY-MM-DD HH:mm:ss"
+              value-format="YYYY-MM-DD HH:mm:ss"
+              :time-picker-props="{ format: 'HH:mm:ss' }"
               class="w-full !rounded-lg"
               placeholder="请选择时间"
             />

@@ -89,7 +89,7 @@ const handleCreateBlank = () => {
     <div class="p-1 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <a-radio-group v-model="activeTab" type="button" size="medium">
-          <a-radio value="template">使用应用模板 (飞书风格)</a-radio>
+          <a-radio value="template">使用应用模板</a-radio>
           <a-radio value="blank">创建空白应用</a-radio>
         </a-radio-group>
         <span class="text-xs text-slate-400">选择适合你的构建方式</span>
