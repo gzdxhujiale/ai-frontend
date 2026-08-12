@@ -165,60 +165,59 @@ const handleRefresh = () => {
         </div>
       </header>
 
-      <!-- 2. Space Selector Tabs (Feishu Style) -->
-      <div class="flex items-center justify-between rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
-        <div class="flex items-center gap-1">
-          <span class="text-xs font-semibold text-slate-400 mr-2">空间维度:</span>
-          <button
-            v-for="space in spaces"
-            :key="space.key"
-            type="button"
-            class="rounded-lg px-3.5 py-1.5 text-xs font-medium transition"
-            :class="
-              activeSpace === space.key
-                ? 'bg-blue-50 text-[#165dff] font-bold shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100'
-            "
-            @click="activeSpace = space.key as AppSpace"
-          >
-            {{ space.label }}
-          </button>
-        </div>
+      <!-- 2. Space Selector Tabs (Arco Design Tabs) -->
+      <div class="rounded-xl border border-slate-200/80 bg-white px-4 py-2 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="text-xs font-semibold text-slate-400 shrink-0">空间维度:</span>
+            <a-tabs
+              v-model:active-key="activeSpace"
+              type="capsule"
+              size="medium"
+              class="app-center-tabs overflow-x-auto"
+            >
+              <a-tab-pane
+                v-for="space in spaces"
+                :key="space.key"
+                :title="space.label"
+              />
+            </a-tabs>
+          </div>
 
-        <div class="flex items-center gap-2">
-          <a-radio-group v-model="filterStatus" type="button" size="small">
-            <a-radio value="all">全部应用</a-radio>
-            <a-radio value="installed">已安装</a-radio>
-            <a-radio value="available">可获取</a-radio>
-          </a-radio-group>
+          <div class="flex items-center gap-2 shrink-0">
+            <a-radio-group v-model="filterStatus" type="button" size="small">
+              <a-radio value="all">全部应用</a-radio>
+              <a-radio value="installed">已安装</a-radio>
+              <a-radio value="available">可获取</a-radio>
+            </a-radio-group>
+          </div>
         </div>
       </div>
 
-      <!-- 3. Category Filter & Search Bar (ShadowBot Style) -->
-      <section class="rounded-xl border border-slate-200/80 bg-white p-3 shadow-xs">
+      <!-- 3. Category Filter & Search Bar (Arco Design Tabs) -->
+      <section class="rounded-xl border border-slate-200/80 bg-white px-4 py-2 shadow-xs">
         <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div class="flex flex-wrap gap-1 overflow-x-auto">
-            <button
-              v-for="category in categories"
-              :key="category.label"
-              type="button"
-              class="shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition"
-              :class="
-                activeCategory === category.label
-                  ? 'bg-blue-50 text-[#165dff] font-bold'
-                  : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
-              "
-              @click="activeCategory = category.label"
+          <div class="flex items-center gap-3 min-w-0 overflow-x-auto">
+            <span class="text-xs font-semibold text-slate-400 shrink-0">业务维度:</span>
+            <a-tabs
+              v-model:active-key="activeCategory"
+              type="capsule"
+              size="small"
+              class="app-center-tabs"
             >
-              {{ category.label }}
-            </button>
+              <a-tab-pane
+                v-for="category in categories"
+                :key="category.label"
+                :title="category.label"
+              />
+            </a-tabs>
           </div>
 
           <a-input
             v-model="searchText"
             allow-clear
             placeholder="搜索 RPA、Agent 或应用名称..."
-            class="w-full lg:max-w-[320px] !rounded-lg"
+            class="w-full lg:max-w-[320px] minimal-radius !rounded-[2px]"
           >
             <template #prefix><IconSearch /></template>
           </a-input>

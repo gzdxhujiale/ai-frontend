@@ -225,13 +225,6 @@ const handleAction = (label: string) => Message.info(`${label}功能将在对应
               </div>
             </div>
           </a-card>
-
-          <a-card :bordered="false" class="!rounded-2xl !border !border-slate-200/80 shadow-none">
-            <template #title><span class="text-[15px] font-semibold text-slate-900">常用入口</span></template>
-            <div class="grid grid-cols-2 gap-2">
-              <button v-for="entry in ['我的任务', '经营日报', '异常中心', '应用运行', '经营看板', 'AI升级项目']" :key="entry" type="button" class="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-left text-sm text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-[#165dff]" @click="handleAction(entry)"><span>{{ entry }}</span><IconArrowRight class="text-slate-300" /></button>
-            </div>
-          </a-card>
         </aside>
       </div>
     </div>

@@ -87,11 +87,11 @@ const handleCreateBlank = () => {
     </template>
 
     <div class="p-1 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <a-radio-group v-model="activeTab" type="button" size="medium">
-          <a-radio value="template">使用应用模板</a-radio>
-          <a-radio value="blank">创建空白应用</a-radio>
-        </a-radio-group>
+      <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+        <a-tabs v-model:active-key="activeTab" type="line" size="medium" class="app-detail-tabs">
+          <a-tab-pane key="template" title="使用应用模板" />
+          <a-tab-pane key="blank" title="创建空白应用" />
+        </a-tabs>
         <span class="text-xs text-slate-400">选择适合你的构建方式</span>
       </div>
 
@@ -111,7 +111,7 @@ const handleCreateBlank = () => {
           </div>
           <div class="flex items-center justify-between border-t border-slate-100 pt-3">
             <span class="text-[11px] text-slate-400">{{ tpl.level }}</span>
-            <a-button type="primary" size="mini" class="!rounded-lg" @click="handleUseTemplate(tpl)">
+            <a-button type="primary" size="mini" class="!rounded-[2px]" @click="handleUseTemplate(tpl)">
               创建应用
             </a-button>
           </div>
@@ -122,12 +122,12 @@ const handleCreateBlank = () => {
       <div v-else class="space-y-4 py-2">
         <a-form :model="formModel" layout="vertical">
           <a-form-item label="应用名称" required>
-            <a-input v-model="formModel.name" placeholder="请输入应用名称，例如：店铺财务对账机器人" class="!rounded-lg" />
+            <a-input v-model="formModel.name" placeholder="请输入应用名称，例如：店铺财务对账机器人" class="minimal-radius !rounded-[2px]" />
           </a-form-item>
 
           <div class="grid grid-cols-3 gap-3">
             <a-form-item label="所属空间">
-              <a-select v-model="formModel.space" class="!rounded-lg">
+              <a-select v-model="formModel.space" class="minimal-radius !rounded-[2px]">
                 <a-option value="personal">个人空间</a-option>
                 <a-option value="public">公共空间</a-option>
                 <a-option value="rnd">研发中心</a-option>
@@ -136,7 +136,7 @@ const handleCreateBlank = () => {
             </a-form-item>
 
             <a-form-item label="业务分类">
-              <a-select v-model="formModel.category" class="!rounded-lg">
+              <a-select v-model="formModel.category" class="minimal-radius !rounded-[2px]">
                 <a-option value="商品">商品</a-option>
                 <a-option value="淘宝">淘宝</a-option>
                 <a-option value="亚马逊">亚马逊</a-option>
@@ -148,7 +148,7 @@ const handleCreateBlank = () => {
             </a-form-item>
 
             <a-form-item label="应用层级">
-              <a-select v-model="formModel.level" class="!rounded-lg">
+              <a-select v-model="formModel.level" class="minimal-radius !rounded-[2px]">
                 <a-option value="L1 原子能力">L1 原子能力</a-option>
                 <a-option value="L2 场景应用">L2 场景应用</a-option>
                 <a-option value="L3 执行系统">L3 执行系统</a-option>
@@ -157,13 +157,13 @@ const handleCreateBlank = () => {
           </div>
 
           <a-form-item label="应用描述说明">
-            <a-textarea v-model="formModel.description" placeholder="简要描述该自动化的核心业务功能与使用对象..." :auto-size="{ minRows: 3, maxRows: 5 }" class="!rounded-lg" />
+            <a-textarea v-model="formModel.description" placeholder="简要描述该自动化的核心业务功能与使用对象..." :auto-size="{ minRows: 3, maxRows: 5 }" class="minimal-radius !rounded-[2px]" />
           </a-form-item>
         </a-form>
 
         <div class="flex justify-end gap-2 border-t border-slate-100 pt-3">
-          <a-button class="!rounded-lg" @click="handleClose">取消</a-button>
-          <a-button type="primary" class="!rounded-lg !px-6" @click="handleCreateBlank">立即创建</a-button>
+          <a-button class="!rounded-[2px]" @click="handleClose">取消</a-button>
+          <a-button type="primary" class="!rounded-[2px] !px-6" @click="handleCreateBlank">立即创建</a-button>
         </div>
       </div>
     </div>

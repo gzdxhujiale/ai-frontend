@@ -104,7 +104,7 @@ const handleSubmit = () => {
               format="YYYY-MM-DD HH:mm:ss"
               value-format="YYYY-MM-DD HH:mm:ss"
               :time-picker-props="{ format: 'HH:mm:ss' }"
-              class="w-full !rounded-lg"
+              class="w-full minimal-radius !rounded-[2px]"
               placeholder="请选择时间"
             />
 
@@ -112,7 +112,7 @@ const handleSubmit = () => {
             <a-select
               v-else-if="field.type === 'select'"
               v-model="formValues[field.key]"
-              class="w-full !rounded-lg"
+              class="w-full minimal-radius !rounded-[2px]"
               placeholder="请选择"
             >
               <a-option v-for="opt in field.options || []" :key="opt" :value="opt">{{ opt }}</a-option>
@@ -123,9 +123,9 @@ const handleSubmit = () => {
               <a-input
                 v-model="formValues[field.key]"
                 placeholder="请选择数据存放路径..."
-                class="flex-1 !rounded-lg"
+                class="flex-1 minimal-radius !rounded-[2px]"
               />
-              <a-button type="secondary" class="!rounded-lg" @click="handleBrowseFile(field.key)">
+              <a-button type="secondary" class="!rounded-[2px]" @click="handleBrowseFile(field.key)">
                 <template #icon><IconFolder /></template>
                 浏览...
               </a-button>
@@ -135,7 +135,7 @@ const handleSubmit = () => {
             <a-input-number
               v-else-if="field.type === 'number'"
               v-model="formValues[field.key]"
-              class="w-full !rounded-lg"
+              class="w-full minimal-radius !rounded-[2px]"
               placeholder="请输入数字"
             />
 
@@ -143,7 +143,7 @@ const handleSubmit = () => {
             <a-input
               v-else
               v-model="formValues[field.key]"
-              class="w-full !rounded-lg"
+              class="w-full minimal-radius !rounded-[2px]"
               :placeholder="field.description || '请输入'"
             />
           </a-form-item>
